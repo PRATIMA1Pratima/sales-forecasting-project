@@ -1,0 +1,11 @@
+CREATE DATABASE sales_forecasting;
+USE sales_forecasting;
+SELECT * FROM walmart LIMIT 5;
+SELECT SUM(Weekly_Sales) AS Total_Sales FROM walmart;
+SELECT AVG(Weekly_Sales) AS Average_Sales FROM walmart;
+SELECT Store, SUM(Weekly_Sales) AS Revenue FROM walmart GROUP BY Store ORDER BY Revenue DESC;
+SELECT Store, SUM(Weekly_Sales) AS Revenue FROM walmart GROUP BY Store ORDER BY Revenue DESC LIMIT 5;
+SELECT Holiday_Flag, AVG(Weekly_Sales) AS Average_Sales FROM walmart GROUP BY Holiday_Flag;
+SELECT * FROM walmart ORDER BY Weekly_Sales DESC LIMIT 1;
+SELECT Store, AVG(Weekly_Sales) AS Avg_Sales FROM Walmart GROUP BY Store ORDER BY Avg_Sales DESC;
+SELECT COUNT(DISTINCT Store) AS Total_Stores FROM walmart;
