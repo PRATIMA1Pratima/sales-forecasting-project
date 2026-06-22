@@ -56,7 +56,7 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
 model = joblib.load("Streamlit/Sales_model.pkl")
 
 
-df = pd.read_csv("../data/Walmart.csv")
+df = pd.read_csv("Data/Walmart.csv")
 
 
 st.title("📊 Retail Sales Forecasting Dashboard")
