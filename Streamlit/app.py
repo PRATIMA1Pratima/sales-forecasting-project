@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import plotly.express as px
 
+model = joblib.load("Sales_model.pkl")
 
 st.set_page_config(
     page_title="Retail Sales Forecasting Dashboard",
@@ -52,7 +53,7 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
 """, unsafe_allow_html=True)
 
 
-model = joblib.load("Sales_model.pkl")
+
 
 
 df = pd.read_csv("../data/Walmart.csv")
