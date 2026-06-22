@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 import plotly.express as px
 
-model = joblib.load("Sales_model.pkl")
+model = joblib.load("Streamlit/Sales_model.pkl")
 
 st.set_page_config(
     page_title="Retail Sales Forecasting Dashboard",
