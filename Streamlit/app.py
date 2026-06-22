@@ -187,5 +187,5 @@ with col5:
     st.metric("MAE", f"{mae:,.2f}")
 
 st.markdown("---")
-st.caption("Project Made by Pratima")
+st.caption("Project Created by Pratima")
 
