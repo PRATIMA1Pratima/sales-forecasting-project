@@ -3,17 +3,13 @@ import pandas as pd
 import joblib
 import plotly.express as px
 
-# -----------------------------
-# PAGE CONFIG
-# -----------------------------
+
 st.set_page_config(
     page_title="Retail Sales Forecasting Dashboard",
     layout="wide"
 )
 
-# -----------------------------
-# DARK PROFESSIONAL UI
-# -----------------------------
+
 st.markdown("""
 <style>
 
@@ -55,27 +51,19 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
 </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------
-# LOAD MODEL
-# -----------------------------
+
 model = joblib.load("Sales_model.pkl")
 
-# -----------------------------
-# LOAD DATA
-# -----------------------------
+
 df = pd.read_csv("../data/Walmart.csv")
 
-# -----------------------------
-# HEADER
-# -----------------------------
+
 st.title("📊 Retail Sales Forecasting Dashboard")
 st.caption("AI Powered Business Intelligence System")
 
 st.markdown("---")
 
-# -----------------------------
-# KPI METRICS
-# -----------------------------
+
 total_sales = float(df["Weekly_Sales"].sum())
 avg_sales = float(df["Weekly_Sales"].mean())
 total_stores = int(df["Store"].nunique())
@@ -93,9 +81,7 @@ with col3:
 
 st.markdown("---")
 
-# -----------------------------
-# SIDEBAR INPUTS
-# -----------------------------
+
 st.sidebar.header("Forecast Inputs")
 
 store = st.sidebar.number_input("Store", 1, 50, 1)
@@ -106,9 +92,7 @@ cpi = st.sidebar.number_input("CPI", value=200.0)
 unemployment = st.sidebar.number_input("Unemployment", value=8.0)
 month = st.sidebar.slider("Month", 1, 12, 1)
 
-# -----------------------------
-# PREDICTION
-# -----------------------------
+
 st.subheader("🔮 Sales Prediction")
 
 if st.button("Generate Forecast"):
@@ -131,9 +115,7 @@ if st.button("Generate Forecast"):
 
 st.markdown("---")
 
-# -----------------------------
-# SALES TREND (PLOTLY)
-# -----------------------------
+
 st.subheader("📈 Sales Trend Over Time")
 
 sales_trend = df.groupby("Date")["Weekly_Sales"].sum().reset_index()
@@ -155,9 +137,7 @@ st.plotly_chart(fig1, use_container_width=True)
 
 st.markdown("---")
 
-# -----------------------------
-# FEATURE IMPORTANCE (PLOTLY)
-# -----------------------------
+
 st.subheader("📊 Feature Importance")
 
 features = [
@@ -191,9 +171,7 @@ st.plotly_chart(fig2, use_container_width=True)
 
 st.markdown("---")
 
-# -----------------------------
-# MODEL PERFORMANCE
-# -----------------------------
+
 r2 = 0.9408
 mae = 71813.87
 
